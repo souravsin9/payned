@@ -14,7 +14,7 @@ The framework consists of:
 To track sales and get paid, link your app with our affiliate network — [Travelpayouts.com](http://www.travelpayouts.com/).
 
 
-Learn more and complete integration with [Aviasales Android SDK Documentation](https://github.com/KosyanMedia/aviasales-android-template/wiki/Aviasales-Android-SDK-Documentation).
+Learn more and complete integration with [Aviasales Android SDK Documentation](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Aviasales-Android-SDK-Documentation).
 <br>Learn more about earnings in [Travelpayouts FAQ](http://support.travelpayouts.com/entries/23225382-Commission-and-payments).
 
-More languages: [RUS] [Документация Aviasaels Android SDK](https://github.com/KosyanMedia/aviasales-android-template/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F-Aviasales-Android-SDK).
+More languages: [RUS] [Документация Aviasaels Android SDK](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F-Aviasales-Android-SDK).
