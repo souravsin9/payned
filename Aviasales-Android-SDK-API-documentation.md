@@ -134,6 +134,6 @@ Main class of API library is [AviasalesSDK.java](http://kosyanmedia.github.io/Av
 
 More information about API library you can get at  [ Aviasales API javadoc](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/index.html).
 
-###[Aviasales SDK Documentation](https://github.com/KosyanMedia/viasales-Android-SDK/wiki/Aviasales-Android-SDK-Documentation)
+###[Aviasales SDK Documentation](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Aviasales-Android-SDK-Documentation)
 
-###[Template project screens](https://github.com/KosyanMedia/viasales-Android-SDK/wiki/Template-project-screens)
+###[Template project screens](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Template-project-screens)
