@@ -126,7 +126,7 @@ Start buy process
 	});
 ```
 
-For more information see [template project](https://github.com/KosyanMedia/aviasales-android-template/tree/master/aviasalestemplate)
+For more information see [template project](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/aviasalestemplate)
 
 ## Javadoc
 
