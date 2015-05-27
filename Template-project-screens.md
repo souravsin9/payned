@@ -2,7 +2,7 @@
 
 ### Search form
 
-![screenshot1](https://github.com/KosyanMedia/aviasales-android-template/blob/master/screenshots/screenshot1.png)
+![screenshot1](https://github.com/KosyanMedia/Aviasales-Android-SDK/blob/master/screenshots/screenshot1.png)
 
 
 ### Search progress screen
