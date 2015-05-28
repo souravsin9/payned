@@ -44,7 +44,7 @@ dependencies {
 
 ### Добавление `AviasalesFragment` в activity 
 
-Добавить в основной деятельности расположенной в `` activity_main.xml` фрагмент `FrameLayout`:
+Добавьте в main activity, расположенной в файле `` activity_main.xml`, фрагмент `FrameLayout`:
 
 ```xml
  	<FrameLayout
@@ -53,7 +53,7 @@ dependencies {
 		android:layout_height="match_parent"/>
 ```
 
-Добавить фрагмент в `MainActivity:
+Добавить фрагмент в `MainActivity`:
 
 ```java	
   public class MainActivity extends ActionBarActivity {
@@ -90,7 +90,7 @@ dependencies {
 
 ### Добавление onBackPressed 
 
-Для корректной работы действия `onBackPressed` из раздела aviasales добавьте следующее действие в 'onBackPressed`: 
+Для корректной работы действия `onBackPressed` между экранами aviasales, добавьте следующее действие в 'onBackPressed`: 
 
 ```java
 	@Override
@@ -119,7 +119,7 @@ dependencies {
             ...
 ```
 
-И в `styles.xml`
+В файле `styles.xml` за это отвечает часть:
 
 ```xml
 	<style name="AppTheme" parent="AviasalesTemplateTheme">
@@ -154,5 +154,6 @@ dependencies {
 
 Получите больше информации о [demo проекте](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/demo).
 
-### [Aviasales Android API](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F-Aviasales-Android-SDK-API)
+### [Aviasales Android SDK API](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F-Aviasales-Android-SDK-API)
+
 ###[Экраны шаблонного проекта](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/%D0%AD%D0%BA%D1%80%D0%B0%D0%BD%D1%8B-%D0%B2-%D1%81%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B5-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0)
