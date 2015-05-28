@@ -1,4 +1,4 @@
-Aviasales SDK API находится в .aar библиотеке которая отвечает за подключение к движку поиска билетов от Aviasales. 
+Aviasales SDK API находится в .aar библиотеке, которая отвечает за подключение к движку поиска билетов от Aviasales. 
 
 ## Установка
 
@@ -18,7 +18,7 @@ dependencies {
 
 ### Инициализация
 
-Перед тем как использовать SDK API его необходимо проинициализировать 
+Перед тем как использовать SDK API его необходимо проинициализировать: 
 
 ```java
     AviasalesSDK.getInstance().init(this);
@@ -27,7 +27,7 @@ dependencies {
 
 ### Добавление ключей Aviasales API в приложение
 
-В strings.xml создайте строки aviasales_marker и aviasales_api_token с вашим партнерским маркером и токеном. Чтобы получить их, перейдите в раздел "Разработчикам" личного кабинета партнерской программы:
+В strings.xml создайте строки aviasales_marker и aviasales_api_token с вашим партнерским маркером и токеном. Чтобы получить их, перейдите в раздел "[Разработчикам](https://www.travelpayouts.com/developers/api)" личного кабинета партнерской программы:
 
 ```xml
 	<string name="aviasales_marker">74590</string>
@@ -43,7 +43,7 @@ dependencies {
 
 ### Установка разрешений
 
-Установите разрешения INTERNET и ACCESS_NETWORK_STATE, путем добавления элемента <uses-permission> в качестве вложения в элемент <manifest>.
+Установите разрешения INTERNET и ACCESS_NETWORK_STATE. Для этого добавьте элемент <uses-permission> в качестве вложения в элемент <manifest>.
 
 ```xml
 	<uses-permission android:name="android.permission.INTERNET"/>
@@ -54,7 +54,7 @@ dependencies {
 
 ### Поиск билетов 
 
-Для запуска поиска билетов создайте SearchParams
+Чтобы в приложении работал поиск билетов, создайте SearchParams:
 
 ```java
 		SearchParams params = new SearchParams();
@@ -99,7 +99,7 @@ dependencies {
 
 ### Поиск мест
 
-Создайте SearchByNameParams 
+Создайте SearchByNameParams: 
 
 ```java
 	SearchByNameParams params = new SearchByNameParams();
@@ -132,7 +132,7 @@ dependencies {
 
 ## Javadoc
 
-Основной класс API библиотеки это [AviasalesSDK.java](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/ru/aviasales/core/AviasalesSDK.html)
+Основной класс API библиотеки - это [AviasalesSDK.java](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/ru/aviasales/core/AviasalesSDK.html)
 
 Больше информации о библиотеке API вы можете получить в [Aviasales API javadoc](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/index.html).
 
