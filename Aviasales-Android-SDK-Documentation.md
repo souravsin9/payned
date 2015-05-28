@@ -18,7 +18,7 @@ dependencies {
 
 ### Add the Aviasales API keys to your application
 
-In strings.xml create strings `aviasales_marker` and `aviasales_api_token` with your marker and token params. You can get them at [Travelpayouts.com](http://www.travelpayouts.com/):
+In strings.xml create strings `aviasales_marker` and `aviasales_api_token` with your marker and token params. You can get them at [Travelpayouts.com](https://www.travelpayouts.com/developers/api):
 
 ```xml
 	<string name="aviasales_marker">74590</string>
@@ -26,6 +26,7 @@ In strings.xml create strings `aviasales_marker` and `aviasales_api_token` with 
 ```
 
 In `AndroidManifest.xml` add `ru.aviasales.marker` and `ru.aviasales.api_token` as a child of the `<application>` element, by inserting them just before the closing tag `</application>`:
+
 ```xml
  <meta-data android:name="ru.aviasales.marker" android:value="@string/aviasales_marker"/>
  <meta-data android:name="ru.aviasales.api_token" android:value="@string/aviasales_api_token"/>
@@ -33,7 +34,8 @@ In `AndroidManifest.xml` add `ru.aviasales.marker` and `ru.aviasales.api_token` 
 
 ### Specify permissions
 
-Specify the permissions `INTERNET` and `ACCESS_NETWORK_STATE`, by adding `<uses-permission>` elements as children of the `<manifest>` element. 
+Specify the permissions `INTERNET` and `ACCESS_NETWORK_STATE` by adding `<uses-permission>` elements as children of the `<manifest>` element. 
+
 ```xml
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -43,7 +45,7 @@ Specify the permissions `INTERNET` and `ACCESS_NETWORK_STATE`, by adding `<uses-
 
 ### Add `AviasalesFragment` to your activity 
 
-Add to main activity layout `activity_main.xml` `FrameLayout` for fragments 
+Add to main activity layout `activity_main.xml` the `FrameLayout` for fragments 
 
 ```xml
  	<FrameLayout
@@ -118,7 +120,7 @@ For proper customization of Aviasales Template use `AviasalesTemplateTheme` or e
             ...
 ```
 
-in `styles.xml`
+and in `styles.xml`
 
 ```xml
 	<style name="AppTheme" parent="AviasalesTemplateTheme">
