@@ -27,14 +27,14 @@ Before usage of sdk API it should be initialized
 
 ### Add the Aviasales API keys to your application
 
-In strings.xml create strings `aviasales_marker` and `aviasales_api_token` with your marker and token params. You can get them at [Travelpayouts.com](http://www.travelpayouts.com/):
+In strings.xml create strings `aviasales_marker` and `aviasales_api_token` with your marker and token params. You can get them at [Travelpayouts.com](https://www.travelpayouts.com/developers/api):
 
 ```xml
 	<string name="aviasales_marker">74590</string>
 	<string name="aviasales_api_token">9f16d617b9df8b2b6b5d0372711e9d6b</string>
 ```
 
-In `AndroidManifest.xml`, add `ru.aviasales.marker` and `ru.aviasales.api_token` as a child of the `<application>` element, by inserting them just before the closing tag `</application>`:
+In `AndroidManifest.xml` add `ru.aviasales.marker` and `ru.aviasales.api_token` as a child of the `<application>` element, by inserting them just before the closing tag `</application>`:
 
 ```xml
  <meta-data android:name="ru.aviasales.marker" android:value="@string/aviasales_marker"/>
@@ -43,7 +43,7 @@ In `AndroidManifest.xml`, add `ru.aviasales.marker` and `ru.aviasales.api_token`
 
 ### Specify permissions
 
-Specify the permissions `INTERNET` and `ACCESS_NETWORK_STATE`, by adding `<uses-permission>` elements as children of the `<manifest>` element. 
+Specify the permissions `INTERNET` and `ACCESS_NETWORK_STATE` by adding `<uses-permission>` elements as children of the `<manifest>` element. 
 ```xml
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -53,7 +53,7 @@ Specify the permissions `INTERNET` and `ACCESS_NETWORK_STATE`, by adding `<uses-
 
 ### Ticket search 
 
-To start ticket search create SearchParams
+To start ticket search create `SearchParams`:
 
 ```java
 		SearchParams params = new SearchParams();
@@ -86,7 +86,7 @@ To start ticket search create SearchParams
 		params.setContext(context.getApplicationContext());
  ```
 
-Start ticket search 
+Start ticket search:
 
 ```java			
 		   AviasalesSDK.getInstance().startTicketsSearch(
@@ -98,7 +98,7 @@ Start ticket search
 
 ### Finding places
 
-Create SearchByNameParams 
+Create `SearchByNameParams`:
 
 ```java
 	SearchByNameParams params = new SearchByNameParams();
@@ -110,7 +110,7 @@ Create SearchByNameParams
 	params.setLocale("en");
 ```
 
-Start Places search 
+Start places search 
 ```java
 		AviasalesSDK.getInstance().startPlacesSearch(params, new OnSearchPlacesListener() {
 		... // Listener for response 
@@ -119,14 +119,14 @@ Start Places search
 
 ### Buying ticket
 
-Start buy process
+Start buy process:
 ```java
 	AviasalesSDK.getInstance().startBuyProcess(ticketData, String gateKey,new OnBuyProcessListener() {
 		... // Listener for response 
 	});
 ```
 
-For more information see [template project](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/aviasalestemplate)
+For more information see [demo project](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/aviasalestemplate)
 
 ## Javadoc
 
