@@ -44,7 +44,7 @@ dependencies {
 
 ### Добавление `AviasalesFragment` в activity 
 
-Добавьте в main activity, расположенной в файле `` activity_main.xml`, фрагмент `FrameLayout`:
+Добавьте в main activity, которая расположена в `activity_main.xml`, фрагмент `FrameLayout`:
 
 ```xml
  	<FrameLayout
