@@ -21,8 +21,8 @@ dependencies {
 В strings.xml создайте строки `aviasales_marker` и `aviasales_api_token` с вашим партнерским маркером и токеном. Чтобы получить их, перейдите в раздел "[Разработчикам](https://www.travelpayouts.com/developers/api)" личного кабинета партнерской программы:
 
 ```xml
-	<string name="aviasales_marker">74590</string>
-	<string name="aviasales_api_token">9f16d617b9df8b2b6b5d0372711e9d6b</string>
+	<string name="aviasales_marker">73090</string>
+	<string name="aviasales_api_token">a8339d73e2493ce5dbe88be254c5f298</string>
 ```
 
 Так же добавьте ключи в файлы `AndroidManifest.xml`, `ru.aviasales.marker` и `ru.aviasales.api_token` в качестве вложенных элементов в  `<application>` перед закрывающимся тегом `</application>`:
