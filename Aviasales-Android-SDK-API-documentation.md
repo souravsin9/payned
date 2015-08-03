@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile 'ru.aviasales:aviasalesSdk:1.0.2'
+    compile 'ru.aviasales:aviasalesSdk:1.0.1'
 }
 ```
 
