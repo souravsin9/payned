@@ -14,6 +14,6 @@ SDK включает в себя:
 
 Как встроить SDK в приложение читайте в разделе [Aviasales Android SDK Documentation](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F-Aviasales-Android-SDK).
 
-[Как заработать на SDK Aviasales?](http://blog.travelpayouts.com/earn-with-aviasales-sdk/).
+[Как заработать на SDK Aviasales?](http://blog.travelpayouts.com/earn-with-aviasales-sdk/?utm_source=github).
 
 <br>Узнать о размере вознаграждения и условиях работы вы можете в статье [Travelpayouts FAQ](https://support.travelpayouts.com/hc/ru/articles/203955613).
