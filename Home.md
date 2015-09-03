@@ -8,7 +8,7 @@ SDK supports all android devices with android version from 2.3 (API 9).
 The framework consists of:
 * search api library to integrate with search engine server;
 * [template project](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Template-project-screens) with user interface;
-* [example of android appliation](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/demo) which uses this template.
+* [example of android application](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/demo) which uses this template.
 
 
 To track sales and get revenue, link your app with our affiliate network — [Travelpayouts.com](http://www.travelpayouts.com/).
