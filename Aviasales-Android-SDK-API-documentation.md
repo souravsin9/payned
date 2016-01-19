@@ -128,6 +128,16 @@ Start buy process:
 
 For more information see the [demo project](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/aviasalestemplate)
 
+### Additional partner marker
+
+In the app you can change the affiliate marker in the process. This is useful, for example, to monitor the actions of different users. To do this, use the method:
+
+[[AviasalesSDK sharedInstance] setMarker: marker];
+
+The parameter **marker** should contain your affiliate marker and an additional partner marker through the point.
+
+For example, your affiliate marker - 12345 and an additional - abcdef. Then the parameter **marker** will look like this: 12345.abcdef.
+
 ## Javadoc
 
 Main class of API library is [AviasalesSDK.java](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/ru/aviasales/core/AviasalesSDK.html)
