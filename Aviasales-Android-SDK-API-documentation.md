@@ -1,5 +1,7 @@
 Aviasales SDK API is an .aar library which responsible for connection to Aviasales search engine. 
 
+Aviasales SDK API [javadoc](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/index.html)
+
 ## Installation 
 
 ### Add gradle dependencies 
@@ -12,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    compile 'ru.aviasales:aviasalesSdk:1.0.1'
+    compile 'ru.aviasales:aviasalesSdk:2.0.5-sdk'
 }
 ```
 
@@ -21,25 +23,10 @@ dependencies {
 Before usage of sdk API it should be initialized 
 
 ```java
-    AviasalesSDK.getInstance().init(this);
-
+ AviasalesSDK.getInstance().init(this, new IdentificationData(TRAVEL_PAYOUTS_MARKER, TRAVEL_PAYOUTS_TOKEN));
 ```
 
-### Add the Aviasales API keys to your application
-
-In strings.xml create strings `aviasales_marker` and `aviasales_api_token` with your marker and token params. You can get them at [Travelpayouts.com](https://www.travelpayouts.com/developers/api):
-
-```xml
-	<string name="aviasales_marker">74590</string>
-	<string name="aviasales_api_token">9f16d617b9df8b2b6b5d0372711e9d6b</string>
-```
-
-In `AndroidManifest.xml` add `ru.aviasales.marker` and `ru.aviasales.api_token` as a child of the `<application>` element, by inserting them just before the closing tag `</application>`:
-
-```xml
- <meta-data android:name="ru.aviasales.marker" android:value="@string/aviasales_marker"/>
- <meta-data android:name="ru.aviasales.api_token" android:value="@string/aviasales_api_token"/>
-```
+Change TRAVEL_PAYOUTS_MARKER and TRAVEL_PAYOUTS_TOKEN to your marker and token params. You can get them at [Travelpayouts.com](https://www.travelpayouts.com/developers/api):
 
 ### Specify permissions
 
@@ -57,40 +44,41 @@ To start ticket search create `SearchParams`:
 
 ```java
 		SearchParams params = new SearchParams();
-		params.setOriginIata(originIata);  // origin iata string ( for example LON)
-		params.setDestinationIata(destinationIata); // destination iata string ( BER )
 
-		// depart & return date are seting in "yyyy-MM-dd" format (SearchParams.SEARCH_PARAMS_DATE_FORMAT)
-		params.setDepartDate(departDate); 
-		params.setReturnDate(returnDate);// if one-way ticket should be null
+		//originIata and destinationIata is Iatas of your current search 
+		// dates are set in "yyyy-MM-dd" format (SearchParams.SEARCH_PARAMS_DATE_FORMAT)
+		params.addSegment(originIata, destinationIata, departureDate);
 
-		//number of passengers
-		params.setAdults(adults); 
-		params.setChildren(children);
-		params.setInfants(infants);
+		// this is return segment
+		params.addSegment(destinationIata, originIata, returnDate);
+
+		//set number of passengers
+		params.setPassengers(new Passengers( 1, 0, 0 ); // number of adults, childrens, infants
 
 		// trip class could be SearchParams.TRIP_CLASS_ECONOMY
 		// or SearchParams.TRIP_CLASS_BUSINESS
 		// or SearchParams.TRIP_CLASS_PREMIUM_ECONOMY
 		params.setTripClass(tripClass);
 
-		// set possiple stop over or nonstop
-		params.setDirect(SearchParams.DIRECT_STOP_OVER);
-
-		// these parameters should not be changed
-		params.setRange(SearchParams.RANGE_EXACT);
-		params.setEnableApiAuth(true);
-		params.setPreinitializeFilters(true);
-
 		// pass application context
 		params.setContext(context.getApplicationContext());
  ```
+
+Aviasales SDK supports complex search with multiple segments. You can add up to 8 segments 
+```java			
+		params.addSegment("MOW", "LED", "2016-06-06");
+		params.addSegment("LED", "BER", "2016-06-08");
+		params.addSegment("BER", "ROM", "2016-06-10");
+		params.addSegment("ROM", "MOW", "2016-06-12");
+	});
+
+```
 
 Start ticket search:
 
 ```java			
 		   AviasalesSDK.getInstance().startTicketsSearch(
-                   searchParams, new OnTicketsSearchListener() {
+                   searchParams, new SearchListener() {
 		... // Listener for response 
 	});
 
@@ -106,7 +94,7 @@ Create `SearchByNameParams`:
 	params.setName(searchText);
 	params.setContext(getActivity());
 
-	// Locale for searching . For now aviasales supports ru, en, fr, de, it, es, th, pl, pt locales
+	// Locale for searching . For now Aviasales supports ru, en, fr, de, it, es, th, pl, pt locales
 	params.setLocale("en");
 ```
 
@@ -121,7 +109,19 @@ Start places search
 
 Start buy process:
 ```java
-	AviasalesSDK.getInstance().startBuyProcess(ticketData, String gateKey,new OnBuyProcessListener() {
+
+	// proposal is ticket which user selected for purchase. List of proposals returns after successful search and stored in AviasalesSDK.getInstance.getSearchData().getProposals();
+	// gateKey is gate ID of purchased proposal
+	AviasalesSDK.getInstance().startBuyProcess(proposal, String gateKey,new OnBuyProcessListener() {
+		... // Listener for response 
+	});
+```
+
+### Search nearest airports
+
+```java
+
+	AviasalesSDK.getInstance().getNearestPlaces(java.lang.String locale, new OnNearestPlacesListener() {
 		... // Listener for response 
 	});
 ```
@@ -130,14 +130,10 @@ For more information see the [demo project](https://github.com/KosyanMedia/Avias
 
 ### Additional partner marker
 
-In the app you can change the affiliate marker in the process. This is useful, for example, to monitor the actions of different users. To do this, use the method:
-
-[[AviasalesSDK sharedInstance] setMarker: marker];
-
-The parameter **marker** should contain your affiliate marker and an additional partner marker through the point.
-
-For example, your affiliate marker - 12345 and an additional - abcdef. Then the parameter **marker** will look like this: 12345.abcdef.
-
+In the app you can change the affiliate marker in the process. This is useful, for example, to monitor the actions of different users. To do this, initialize AviasalesSDK with IdentificationData constructor :
+```java
+		AviasalesSDK.getInstance().init(getApplicationContext(), new IdentificationData(TRAVEL_PAYOUTS_MARKER, YOUR_ADDITIONAL_MARKER, TRAVEL_PAYOUTS_TOKEN));
+```
 ## Javadoc
 
 Main class of API library is [AviasalesSDK.java](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/ru/aviasales/core/AviasalesSDK.html)
