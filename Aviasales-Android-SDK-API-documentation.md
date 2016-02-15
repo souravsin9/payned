@@ -1,6 +1,6 @@
 Aviasales SDK API is an .aar library which responsible for connection to Aviasales search engine. 
 
-Aviasales SDK API [javadoc](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/index.html)
+[Javadoc](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/index.html)
 
 ## Installation 
 
@@ -112,7 +112,7 @@ Start buy process:
 
 	// proposal is ticket which user selected for purchase. List of proposals returns after successful search and stored in AviasalesSDK.getInstance.getSearchData().getProposals();
 	// gateKey is gate ID of purchased proposal
-	AviasalesSDK.getInstance().startBuyProcess(proposal, String gateKey,new OnBuyProcessListener() {
+	AviasalesSDK.getInstance().startBuyProcess(proposal, String gateKey,new BuyProcessListener() {
 		... // Listener for response 
 	});
 ```
@@ -130,7 +130,7 @@ For more information see the [demo project](https://github.com/KosyanMedia/Avias
 
 ### Additional partner marker
 
-In the app you can change the affiliate marker in the process. This is useful, for example, to monitor the actions of different users. To do this, initialize AviasalesSDK with IdentificationData constructor :
+In the app you can add additional affiliate marker. This is useful, for example, to monitor the actions of different users. To do this, initialize AviasalesSDK with IdentificationData constructor :
 ```java
 		AviasalesSDK.getInstance().init(getApplicationContext(), new IdentificationData(TRAVEL_PAYOUTS_MARKER, YOUR_ADDITIONAL_MARKER, TRAVEL_PAYOUTS_TOKEN));
 ```
