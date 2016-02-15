@@ -1,5 +1,7 @@
 Aviasales SDK API находится в .aar библиотеке, которая отвечает за подключение к движку поиска билетов от Aviasales. 
 
+[Javadoc](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/index.html)
+
 ## Установка
 
 ### Добавление зависимостей 
@@ -12,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    compile 'ru.aviasales:aviasalesSdk:1.0.1'
+    compile 'ru.aviasales:aviasalesSdk:2.0.8-sdk'
 }
 ```
 
@@ -21,25 +23,10 @@ dependencies {
 Перед тем как использовать SDK API его необходимо проинициализировать: 
 
 ```java
-    AviasalesSDK.getInstance().init(this);
+    AviasalesSDK.getInstance().init(this, new IdentificationData(TRAVEL_PAYOUTS_MARKER, TRAVEL_PAYOUTS_TOKEN));
 
 ```
-
-### Добавление ключей Aviasales API в приложение
-
-В strings.xml создайте строки aviasales_marker и aviasales_api_token с вашим партнерским маркером и токеном. Чтобы получить их, перейдите в раздел "[Разработчикам](https://www.travelpayouts.com/developers/api)" личного кабинета партнерской программы:
-
-```xml
-	<string name="aviasales_marker">74590</string>
-	<string name="aviasales_api_token">9f16d617b9df8b2b6b5d0372711e9d6b</string>
-```
-
-Так же добавьте ключи в файлы AndroidManifest.xml, ru.aviasales.marker и ru.aviasales.api_token в качестве вложенных элементов в <application> перед закрывающимся тегом </application>:
-
-```xml
- <meta-data android:name="ru.aviasales.marker" android:value="@string/aviasales_marker"/>
- <meta-data android:name="ru.aviasales.api_token" android:value="@string/aviasales_api_token"/>
-```
+Замените TRAVEL_PAYOUTS_MARKER и TRAVEL_PAYOUTS_TOKEN на ваш партнерский маркер и токен. Чтобы получить их, перейдите в раздел "[Разработчикам](https://www.travelpayouts.com/developers/api)" личного кабинета партнерской программы:
 
 ### Установка разрешений
 
@@ -58,41 +45,42 @@ dependencies {
 
 ```java
 		SearchParams params = new SearchParams();
-		params.setOriginIata(originIata);  // origin iata string ( for example LON)
-		params.setDestinationIata(destinationIata); // destination iata string ( BER )
 
-		// depart & return date are seting in "yyyy-MM-dd" format (SearchParams.SEARCH_PARAMS_DATE_FORMAT)
-		params.setDepartDate(departDate); 
-		params.setReturnDate(returnDate);// if one-way ticket should be null
+		//originIata и destinationIata это IATA коды текущего поиска 
+		// даты должны быть в формате "yyyy-MM-dd" (SearchParams.SEARCH_PARAMS_DATE_FORMAT)
+		params.addSegment(originIata, destinationIata, departureDate);
 
-		//number of passengers
-		params.setAdults(adults); 
-		params.setChildren(children);
-		params.setInfants(infants);
+		// сегмент возвращения
+		params.addSegment(destinationIata, originIata, returnDate);
 
-		// trip class could be SearchParams.TRIP_CLASS_ECONOMY
-		// or SearchParams.TRIP_CLASS_BUSINESS
-		// or SearchParams.TRIP_CLASS_PREMIUM_ECONOMY
+		//устанавливаем количество пассажиров
+		params.setPassengers(new Passengers( 1, 0, 0 ); // количество взрослых, детей, младенцев соответственно
+
+		// класс может быть эконом классом - SearchParams.TRIP_CLASS_ECONOMY
+		// или бизнес классом SearchParams.TRIP_CLASS_BUSINESS
+		// или премиум экономом SearchParams.TRIP_CLASS_PREMIUM_ECONOMY
 		params.setTripClass(tripClass);
 
-		// set possiple stop over or nonstop
-		params.setDirect(SearchParams.DIRECT_STOP_OVER);
-
-		// these parameters should not be changed
-		params.setRange(SearchParams.RANGE_EXACT);
-		params.setEnableApiAuth(true);
-		params.setPreinitializeFilters(true);
-
-		// pass application context
+		// передаем контекст приложения
 		params.setContext(context.getApplicationContext());
  ```
+
+Aviasales SDK поддерживает сложный поиск. Можно задать до 8-ми поисковых сегментов  
+```java			
+		params.addSegment("MOW", "LED", "2016-06-06");
+		params.addSegment("LED", "BER", "2016-06-08");
+		params.addSegment("BER", "ROM", "2016-06-10");
+		params.addSegment("ROM", "MOW", "2016-06-12");
+	});
+
+```
 
 Запуск поиска билетов:
 
 ```java			
 		   AviasalesSDK.getInstance().startTicketsSearch(
-                   searchParams, new OnTicketsSearchListener() {
-		... // Listener for response 
+                   searchParams, new SearchListener() {
+		... // колбэк ответа
 	});
 
 ```
@@ -103,11 +91,11 @@ dependencies {
 
 ```java
 	SearchByNameParams params = new SearchByNameParams();
-	//Set search text
+	//Текст поиска
 	params.setName(searchText);
 	params.setContext(getActivity());
 
-	// Locale for searching . For now aviasales supports ru, en, fr, de, it, es, th, pl, pt locales
+	// Язык поиска. На данный момент aviasales поддерживает следующие языки :ru, en, fr, de, it, es, th, pl, pt.
 	params.setLocale("en");
 ```
 
@@ -115,7 +103,7 @@ dependencies {
  
 ```java
 		AviasalesSDK.getInstance().startPlacesSearch(params, new OnSearchPlacesListener() {
-		... // Listener for response 
+		... // колбэк ответа 
 	});
 ```
 
@@ -124,20 +112,29 @@ dependencies {
 Запуск процесса покупки билетов:
 
 ```java
-	AviasalesSDK.getInstance().startBuyProcess(ticketData, String gateKey,new OnBuyProcessListener() {
-		... // Listener for response 
+	// proposal это объект билета, который был выбран для покупки. Список proposals возвращается после успешного поиска и хранится в AviasalesSDK.getInstance.getSearchData().getProposals();
+	// gateKey это ID гейта купленного proposal
+	AviasalesSDK.getInstance().startBuyProcess(proposal, String gateKey,new BuyProcessListener() {
+		... // колбэк ответа
+	});
+```
+
+### Поиск ближайших аэропортов
+
+```java
+
+	AviasalesSDK.getInstance().getNearestPlaces(java.lang.String locale, new OnNearestPlacesListener() {
+		... // колбэк ответа
 	});
 ```
 
 ### Использование дополнительного маркера
 
-В приложении можно изменять маркер в процессе работы приложения. Это может пригодиться, например, для отслеживания действий разных пользователей. Для этого необходимо воспользоваться методом: 
+В приложении можно использовать дополнительный маркер. Это может пригодиться, например, для отслеживания действий разных пользователей. Для этого необходимо при старте приложения инициализировать AviasalesSDK со следующим конструктором IdentificationData: 
 
-```[[AviasalesSDK sharedInstance] setMarker:marker];```
-
-В параметр **marker** должен входить партнерский маркер и дополнительный через точку. 
-
-Например, ваш партнерский маркер - 12345, а дополнительный - abcdef. Тогда параметр **marker** будет выглядеть так: **12345.abcdef**.
+```java
+		AviasalesSDK.getInstance().init(getApplicationContext(), new IdentificationData(TRAVEL_PAYOUTS_MARKER, YOUR_ADDITIONAL_MARKER, TRAVEL_PAYOUTS_TOKEN));
+```
 
 ## Javadoc
 
