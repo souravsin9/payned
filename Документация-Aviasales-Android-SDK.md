@@ -1,10 +1,10 @@
 Шаблонный проект - это простой модульный проект, который использует Aviasales SDK, для поиска и бронирования дешевых авиабилетов.
 
-## Установка SDK
+## Установка Шаблонного проекта Aviasales Template
 
 ### Добавление зависимостей
 
-Чтобы добавить зависимости в проект, используйте gradle:
+Чтобы добавить модуль в проект, используйте gradle:
 
 ```gradle
 repositories {
@@ -12,24 +12,20 @@ repositories {
 }
 
 dependencies {
-    compile 'ru.aviasales.template:aviasalesSdkTemplate:1.0.2'
+    compile 'ru.aviasales.template:aviasalesSdkTemplate:2.0.8-sdk'
 }
 ```
 
-### Добавление ключей Aviasales API в приложение
+### Инициализация
 
-В strings.xml создайте строки `aviasales_marker` и `aviasales_api_token` с вашим партнерским маркером и токеном. Чтобы получить их, перейдите в раздел "[Разработчикам](https://www.travelpayouts.com/developers/api)" личного кабинета партнерской программы:
+Перед тем как использовать SDK API или шаблонный проект Aviasales Template необходимо проинициализировать AviasalesSDK:
 
-```xml
-	<string name="aviasales_marker">73090</string>
-	<string name="aviasales_api_token">a8339d73e2493ce5dbe88be254c5f298</string>
+```java
+  		AviasalesSDK.getInstance().init(this, new IdentificationData(TRAVEL_PAYOUTS_MARKER, TRAVEL_PAYOUTS_TOKEN)); 
 ```
 
-Так же добавьте ключи в файлы `AndroidManifest.xml`, `ru.aviasales.marker` и `ru.aviasales.api_token` в качестве вложенных элементов в  `<application>` перед закрывающимся тегом `</application>`:
-```xml
- <meta-data android:name="ru.aviasales.marker" android:value="@string/aviasales_marker"/>
- <meta-data android:name="ru.aviasales.api_token" android:value="@string/aviasales_api_token"/>
-```
+
+Замените TRAVEL_PAYOUTS_MARKER и TRAVEL_PAYOUTS_TOKEN на ваш партнерский маркер и токен. Чтобы получить их, перейдите в раздел "Разработчикам" личного кабинета партнерской программы:https://www.travelpayouts.com/developers/api
 
 ### Установка разрешений
 
@@ -40,7 +36,7 @@ dependencies {
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
 
-## Добавление шаблонного проекта в приложение 
+## Пример добавления шаблонного проекта Aviasales Template в приложение 
 
 ### Добавление `AviasalesFragment` в activity 
 
@@ -56,8 +52,10 @@ dependencies {
 Добавить фрагмент в `MainActivity`:
 
 ```java	
-  public class MainActivity extends ActionBarActivity {
-  
+  public class MainActivity extends AppCompatActivity {
+  	//Замените эти константы на ваши маркер и токен из TravelPayouts
+  	private final static String TRAVEL_PAYOUTS_MARKER = "your_travel_payouts_marker";
+	private final static String TRAVEL_PAYOUTS_TOKEN = "your_travel_payouts_token";
   	private AviasalesFragment aviasalesFragment;
     ...
   
@@ -65,32 +63,34 @@ dependencies {
   	protected void onCreate(Bundle savedInstanceState) {
   		super.onCreate(savedInstanceState);
   
-  		AviasalesSDK.getInstance().init(this); // initialization of AviasalesSDK
+   		// Инициализация AviasalesSDK. 
+		AviasalesSDK.getInstance().init(this, new IdentificationData(TRAVEL_PAYOUTS_MARKER, TRAVEL_PAYOUTS_TOKEN));
   		setContentView(R.layout.activity_main);
      
-     		initFragment();
-  
+  		initFragment();
+ 	}
       ...
   
   	private void initFragment() {
   		FragmentManager fm = getSupportFragmentManager();
   
-  		aviasalesFragment = (AviasalesFragment) fm.findFragmentByTag(AviasalesFragment.TAG); // finding fragment by tag
+  		aviasalesFragment = (AviasalesFragment) fm.findFragmentByTag(AviasalesFragment.TAG); // поиск фрагмента по тегу
   
   
   		if (aviasalesFragment == null) { 
   			aviasalesFragment = (AviasalesFragment) AviasalesFragment.newInstance();
   		}
   
-  		FragmentTransaction fragmentTransaction = fm.beginTransaction(); // adding fragment to fragment manager
+  		FragmentTransaction fragmentTransaction = fm.beginTransaction(); // добавление фрагмента во FragmentManager
   		fragmentTransaction.replace(R.id.fragment_place, aviasalesFragment, AviasalesFragment.TAG);
   		fragmentTransaction.commit();
   	}
+}
 ```
 
 ### Добавление onBackPressed 
 
-Для корректной работы `onBackPressed` между экранами aviasales, добавьте следующее действие в 'onBackPressed`: 
+Для корректной работы `onBackPressed` между экранами Aviasales Template, добавьте следующее действие в 'onBackPressed`: 
 
 ```java
 	@Override
@@ -108,7 +108,7 @@ dependencies {
 
 ## Настройка
 
-Для правильной настройки шаблонного проекта используйте элемент `AviasalesTemplateTheme`. Вы можете изменять его по своему усмотрению:
+Для правильной настройки шаблонного проекта используйте тему `AviasalesTemplateTheme`, или унаследуйтесь от неёи измените её по своему усмотрению. Например:
 
 ```xml    
     <application
@@ -119,7 +119,7 @@ dependencies {
             ...
 ```
 
-В файле `styles.xml` за это отвечает часть:
+В файле `styles.xml` унаследуйте тему от AviasalesTemplateTheme:
 
 ```xml
 	<style name="AppTheme" parent="AviasalesTemplateTheme">
@@ -136,20 +136,17 @@ dependencies {
 
 ```
 
-### Шаблон поиска с тулбаром 
-
-Если вы используете или планируете использовать тулбар в своем приложении, отключите actionbar в вашей теме: 
-
+Так же вы можете изменить цвет фона приложения или цвет цены в выдаче
 ```xml
-        <item name="windowActionBar">false</item>
-        <item name="android:windowNoTitle">true</item>
-```
+	<color name="aviasales_results_background">@color/grey_background</color>
+	<color name="aviasales_search_form_background">@color/white</color>
+	<color name="aviasales_filters_background">@color/white</color>
 
-и добавьте ваш тулбар вместо actionbar:
+	<color name="aviasales_select_airport_background">@color/white</color>
+	<color name="aviasales_ticket_background">@color/grey_background</color>
 
-```java	
-		mToolbar = (Toolbar) findViewById(R.id.toolbar_actionbar);
-		setSupportActionBar(mToolbar);
+	<color name="aviasales_results_card_color">@color/white</color>
+	<color name="aviasales_price_color">@color/yellow_FDCC50</color>
 ```
 
 Получите больше информации о [demo проекте](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/demo).
