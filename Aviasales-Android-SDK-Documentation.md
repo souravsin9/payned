@@ -153,7 +153,7 @@ and add your toolbar instead of actionbar
 		setSupportActionBar(mToolbar);
 ```
 
-For more information see the [demo project](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/demo)
+For more information see the [demo project](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/simple_demo)
 
 ### [Aviasales Android API](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Aviasales-Android-SDK-API-documentation)
 ###[Template project screens](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Template-project-screens)
