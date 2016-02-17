@@ -134,7 +134,7 @@ Aviasales SDK поддерживает сложный поиск. Можно з�
 В приложении можно использовать дополнительный маркер. Это может пригодиться для отслеживания действий разных пользователей. Для этого необходимо при старте приложения инициализировать AviasalesSDK со следующим конструктором `IdentificationData`: 
 
 ```java
-		AviasalesSDK.getInstance().init(getApplicationContext(), new IdentificationData(TRAVEL_PAYOUTS_MARKER, YOUR_ADDITIONAL_MARKER, TRAVEL_PAYOUTS_TOKEN));
+	AviasalesSDK.getInstance().init(getApplicationContext(), new IdentificationData(TRAVEL_PAYOUTS_MARKER, YOUR_ADDITIONAL_MARKER, TRAVEL_PAYOUTS_TOKEN));
 ```
 
 ## Javadoc
