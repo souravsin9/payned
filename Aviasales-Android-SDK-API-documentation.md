@@ -138,8 +138,8 @@ In the app you can add additional affiliate marker. This is useful, for example,
 
 Main class of API library is [AviasalesSDK.java](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/ru/aviasales/core/AviasalesSDK.html)
 
-More information about API library you can get at  [ Aviasales API javadoc](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/index.html).
+More information about API library you can get at [Aviasales API javadoc](http://kosyanmedia.github.io/Aviasales-Android-SDK/javadoc/index.html).
 
-###[Aviasales SDK Template project](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Aviasales-Android-SDK-Template-project)
+###[Aviasales SDK Template project](https://github.com/KosyanMedia/Aviasales-Android-SDK#installation)
 
 ###[Template project screens](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Template-project-screens)
