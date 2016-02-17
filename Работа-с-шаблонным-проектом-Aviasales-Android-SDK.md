@@ -1,4 +1,4 @@
-Шаблонный проект - это простой модульный проект, который использует Aviasales SDK, для поиска и бронирования дешевых авиабилетов.
+Шаблонный проект - это простой модульный проект, который использует Aviasales SDK для поиска и бронирования дешевых авиабилетов.
 
 ## Установка Шаблонного проекта Aviasales Template
 
@@ -18,14 +18,13 @@ dependencies {
 
 ### Инициализация
 
-Перед тем как использовать SDK API или шаблонный проект Aviasales Template необходимо проинициализировать AviasalesSDK:
+Перед тем как использовать SDK API или шаблонный проект Aviasales Template, необходимо проинициализировать AviasalesSDK:
 
 ```java
   		AviasalesSDK.getInstance().init(this, new IdentificationData(TRAVEL_PAYOUTS_MARKER, TRAVEL_PAYOUTS_TOKEN)); 
 ```
 
-
-Замените TRAVEL_PAYOUTS_MARKER и TRAVEL_PAYOUTS_TOKEN на ваш партнерский маркер и токен. Чтобы получить их, перейдите в раздел "Разработчикам" личного кабинета партнерской программы:https://www.travelpayouts.com/developers/api
+Замените TRAVEL_PAYOUTS_MARKER и TRAVEL_PAYOUTS_TOKEN на ваш партнерский маркер и токен. Чтобы получить их, перейдите в раздел "Разработчикам" личного кабинета партнерской программы: https://www.travelpayouts.com/developers/api
 
 ### Установка разрешений
 
@@ -49,7 +48,7 @@ dependencies {
 		android:layout_height="match_parent"/>
 ```
 
-Добавить фрагмент в `MainActivity`:
+Добавьте фрагмент в `MainActivity`:
 
 ```java	
   public class MainActivity extends AppCompatActivity {
@@ -108,7 +107,7 @@ dependencies {
 
 ## Настройка
 
-Для правильной настройки шаблонного проекта используйте тему `AviasalesTemplateTheme`, или унаследуйтесь от неёи измените её по своему усмотрению. Например:
+Для правильной настройки шаблонного проекта используйте тему `AviasalesTemplateTheme`, или унаследуйтесь от неё и измените её по своему усмотрению. Например:
 
 ```xml    
     <application
@@ -136,7 +135,8 @@ dependencies {
 
 ```
 
-Так же вы можете изменить цвет фона приложения или цвет цены в выдаче
+Так же вы можете изменить цвет фона приложения или цвет цены в выдаче:
+
 ```xml
 	<color name="aviasales_results_background">@color/grey_background</color>
 	<color name="aviasales_search_form_background">@color/white</color>
@@ -151,6 +151,6 @@ dependencies {
 
 Получите больше информации о [demo проекте](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/demo).
 
-### [Aviasales Android SDK API](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F-Aviasales-Android-SDK-API)
+### [Установка и настройка Aviasales Android SDK API](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Установка-и-настройка-Aviasales-Android-SDK-API)
 
 ###[Экраны шаблонного проекта](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/%D0%AD%D0%BA%D1%80%D0%B0%D0%BD%D1%8B-%D0%B2-%D1%81%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B5-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0)
