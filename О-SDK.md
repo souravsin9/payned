@@ -12,7 +12,7 @@ SDK включает в себя:
 
 **Для отслеживания продаж и получения вознаграждения необходимо связать приложение с партнерской программой — [Travelpayouts.com](http://www.travelpayouts.com/)**.
 
-Как встроить SDK в приложение читайте в разделе [Работа с шаблонным проектом Aviasales Android SDK](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Работа-с-шаблонным-проектом-Aviasales-Android-SDK).
+Как встроить SDK в приложение читайте в разделе [Шаблонный проект Aviasales Android SDK](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Шаблонный-проект-Aviasales-Android-SDK).
 
 [Как заработать на SDK Aviasales](http://blog.travelpayouts.com/earn-with-aviasales-sdk/?utm_source=github).
 
