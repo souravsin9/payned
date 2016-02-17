@@ -24,7 +24,7 @@ dependencies {
   		AviasalesSDK.getInstance().init(this, new IdentificationData(TRAVEL_PAYOUTS_MARKER, TRAVEL_PAYOUTS_TOKEN)); 
 ```
 
-Замените TRAVEL_PAYOUTS_MARKER и TRAVEL_PAYOUTS_TOKEN на ваш партнерский маркер и токен. Чтобы получить их, перейдите в раздел "Разработчикам" личного кабинета партнерской программы: https://www.travelpayouts.com/developers/api
+Замените `TRAVEL_PAYOUTS_MARKER` и `TRAVEL_PAYOUTS_TOKEN` на ваш партнерский маркер и токен. Чтобы получить их, перейдите в раздел "[Разработчикам](https://www.travelpayouts.com/developers/api)" личного кабинета партнерской программы.
 
 ### Установка разрешений
 
@@ -107,7 +107,7 @@ dependencies {
 
 ## Настройка
 
-Для правильной настройки шаблонного проекта используйте тему `AviasalesTemplateTheme`, или унаследуйтесь от неё и измените её по своему усмотрению. Например:
+Для правильной настройки шаблонного проекта используйте тему AviasalesTemplateTheme, или унаследуйтесь от неё и измените её по своему усмотрению. Например:
 
 ```xml    
     <application
