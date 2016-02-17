@@ -5,7 +5,7 @@
 ![screenshot1](https://github.com/KosyanMedia/Aviasales-Android-SDK/blob/master/screenshots/screenshot1.png)
 
 
-### Complex search form
+### Multicity search form
 
 ![screenshot2](https://github.com/KosyanMedia/Aviasales-Android-SDK/blob/master/screenshots/screenshot2.png)
 
