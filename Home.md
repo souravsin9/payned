@@ -20,4 +20,4 @@ Learn more and complete integration with [Aviasales Android SDK Documentation](h
 
 [Aviasales Mobile SDK: Success story](https://support.travelpayouts.com/hc/en-us/articles/207264337?utm_source=github).
 
-More languages: [RUS] [Документация Aviasales Android SDK](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F-Aviasales-Android-SDK).
+More languages: [RUS] [О Aviasales Android SDK](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/О-SDK).
