@@ -89,7 +89,7 @@ dependencies {
 
 ### Добавление onBackPressed 
 
-Для корректной работы `onBackPressed` между экранами Aviasales Template, добавьте следующее действие в 'onBackPressed`: 
+Для корректной работы `onBackPressed` между экранами Aviasales Template, добавьте следующее действие в `onBackPressed`: 
 
 ```java
 	@Override
