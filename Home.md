@@ -18,6 +18,6 @@ Learn more and complete integration with [Aviasales Android SDK Documentation](h
 
 <br>Learn more about earnings in [Travelpayouts FAQ](https://support.travelpayouts.com/hc/en-us/articles/203955613-Commission-and-payments?utm_source=github).
 
-[Aviasales Mobile SDK: Success story](https://support.travelpayouts.com/hc/en-us/articles/207264337?utm_source=github).
+[Aviasales Mobile SDK: Success story](http://blog.travelpayouts.com/en/free-flight-search-mobile-sdk/).
 
 More languages: [RUS] [Aviasales Android SDK](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/О-SDK).
