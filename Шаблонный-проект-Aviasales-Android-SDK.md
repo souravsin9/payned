@@ -176,7 +176,7 @@ dependencies {
 		AdsImplKeeper.getInstance().setCustomAdsInterfaceImpl(ads); // привязка рекламы к нашему проекту
 ```
 
-Узнать больше про интеграцию рекламы appodeal можно в [этом примере](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/ads_simple_demo)
+Узнать больше про интеграцию рекламы Appodeal можно в [этом примере](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/ads_simple_demo)
 
 ### [Установка и настройка Aviasales Android SDK API](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Установка-и-настройка-Aviasales-Android-SDK-API)
 
