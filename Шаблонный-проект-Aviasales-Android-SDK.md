@@ -151,6 +151,35 @@ dependencies {
 
 Получите больше информации о [demo проекте](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/demo).
 
+
+### Реклама Appodeal 
+Так же вы можете добавить [рекламу Appodeal](http://www.appodeal.ru/) в ваше приложение и получать с неё прибыль
+
+![][1]
+
+Для того чтобы подключить Appodeal нужно просто добавить ещё одну maven-зависимость:
+
+```gradle
+dependencies {
+    compile 'ru.aviasales:appodeallib:1.2'
+}
+```
+
+И потом проинициализировать AppodealAds
+
+```java
+		AppodealAds ads = new AppodealAds(); 
+		ads.setStartAdsEnabled(SHOW_ADS_ON_START); // реклама на старте (true/false)
+		ads.setWaitingScreenAdsEnabled(SHOW_ADS_ON_WAITING_SCREEN); // реклама на экране ожидания (true/false)
+		ads.setResultsAdsEnabled(SHOW_ADS_ON_SEARCH_RESULTS); // реклама в результатах (true/false)
+		ads.init(this, APPODEAL_APP_KEY);  // appodeal ключ (id)
+		AdsImplKeeper.getInstance().setCustomAdsInterfaceImpl(ads); // привязка рекламы к нашему проекту
+```
+
+Узнать больше про интеграцию рекламы appodeal можно в [этом примере](https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/ads_simple_demo)
+
 ### [Установка и настройка Aviasales Android SDK API](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/Установка-и-настройка-Aviasales-Android-SDK-API)
 
 ###[Экраны шаблонного проекта](https://github.com/KosyanMedia/Aviasales-Android-SDK/wiki/%D0%AD%D0%BA%D1%80%D0%B0%D0%BD%D1%8B-%D0%B2-%D1%81%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B5-%D1%88%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0)
+
+[1]: https://github.com/KosyanMedia/Aviasales-Android-SDK/tree/master/screenshots/Screenshot_ads1.png
