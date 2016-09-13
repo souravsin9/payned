@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    compile 'ru.aviasales.template:aviasalesSdkTemplate:2.1.5-sdk'
+    compile 'ru.aviasales.template:aviasalesSdkTemplate:2.1.6'
 }
 ```
 
@@ -161,7 +161,7 @@ dependencies {
 
 ```gradle
 dependencies {
-    compile 'ru.aviasales:appodeallib:1.2'
+    compile 'ru.aviasales.template:appodeallib:2.1.6'
 }
 ```
 
