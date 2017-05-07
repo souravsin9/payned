@@ -26,7 +26,7 @@ Before usage of sdk API it should be initialized
  AviasalesSDK.getInstance().init(this, new IdentificationData(TRAVEL_PAYOUTS_MARKER, TRAVEL_PAYOUTS_TOKEN));
 ```
 
-Change TRAVEL_PAYOUTS_MARKER and TRAVEL_PAYOUTS_TOKEN to your marker and token params. You can get them at [Travelpayouts.com](https://www.travelpayouts.com/developers/api):
+Change TRAVEL_PAYOUTS_MARKER and TRAVEL_PAYOUTS_TOKEN to your marker and token params. You can get them at [Travelpayouts.com](https://www.travelpayouts.com/developers/455fbbe6dd6ae4aa9f9bf0e7b716a3dc):
 
 ### Specify permissions
 
